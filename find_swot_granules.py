@@ -1,30 +1,3 @@
-#!/usr/bin/env python3
-"""
-搜尋指定時間區間 + 空間範圍內可用的 SWOT L3 KaRIn Expert granule。
-
-用法範例：
-  # 用測站座標 + 半徑(度) 搜尋；--tz-offset 8 表示 --start/--end 是台灣當地時間
-  python3 find_swot_granules.py \
-      --start 2023-10-08T16:00:00 --end 2023-10-08T17:00:00 --tz-offset 8 \
-      --lat 21.8063 --lon 123.7828 --radius 0.5
-
-  # 用經緯度範圍框搜尋（輸入時間已是 UTC，不需要 --tz-offset）
-  python3 find_swot_granules.py \
-      --start 2023-10-08T08:00:00 --end 2023-10-08T09:00:00 \
-      --lon-min 122.0 --lon-max 125.0 --lat-min 20.0 --lat-max 23.0
-
-策略：
-  1. 先用檔名中的 DateBegin/DateEnd 做時間篩選（不需開檔，速度快）。
-  2. 對通過時間篩選的候選檔，只讀取 latitude/longitude 陣列，
-     判斷是否有任何像素落在目標範圍內（不載入 SSHA 等大欄位）。
-  3. 輸出符合條件的檔案清單（cycle, pass, 時間範圍, 命中點數, 完整路徑）。
-
-注意：
-  - SWOT 檔案時間為 UTC；若 --start/--end 是測站記錄的當地時間，務必加 --tz-offset。
-  - SWOT Science Phase 為 21 天重複軌道，同一測站通常只有少數幾條固定 pass 會經過，
-    若指定的時間區間太窄（例如只有 30 分鐘），很可能找不到剛好重疊的 overpass；
-    可先用較寬的時間範圍（例如 ±10~15 天）找出實際經過測站的 pass，再回頭比對。
-"""
 import argparse
 import glob
 import os
@@ -44,7 +17,7 @@ def parse_time(s):
 
 
 def norm360(x):
-    """經度正規化到 [0, 360)，SWOT 產品的 longitude 是東經 0~360。"""
+    # 經度正規化到 [0, 360)，SWOT 的 longitude 是東經 0~360。
     return x % 360.0
 
 
