@@ -1,6 +1,5 @@
 ## 檔案
-find_swot_granules.py：時間+空間搜尋，輸出可用檔案清單
-需在 ML01 上執行，並先啟用 pyeddy 環境：
+find_swot_granules.py：時間+空間搜尋，輸出可用檔案清單，需在 ML01 上執行，並先啟用 pyeddy 環境：
 
 ```bash
 ssh <user>@id
