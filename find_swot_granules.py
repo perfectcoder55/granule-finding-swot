@@ -76,7 +76,7 @@ def main():
         type=float,
         default=0.0,
         help="輸入的 --start/--end 相對 UTC 的時區偏移(小時)。"
-        "測站記錄若為台灣當地時間請填 8 (UTC+8)。SWOT 檔案時間本身為 UTC，程式內部一律換算成 UTC 比對。預設 0 (輸入已是 UTC)。",
+        "測站記錄若為台灣當地時間請填 8 (UTC+8)。SWOT 檔案時間本身為 UTC。預設 0。",
     )
     args = ap.parse_args()
 
