@@ -3,9 +3,7 @@
 | 檔案 | 用途 |
 |---|---|
 | `find_swot_granules.py` | 時間+空間搜尋，輸出可用檔案清單 |
-| `visualize_station_swot.py` | 延伸工具：測站+SWOT軌跡覆蓋圖、SSHA 空間分布圖 |
-
-兩者皆需在 ML01 上執行，並先啟用 pyeddy 環境：
+需在 ML01 上執行，並先啟用 pyeddy 環境：
 
 ```bash
 ssh <user>@id
