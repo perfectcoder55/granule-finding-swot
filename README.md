@@ -1,5 +1,5 @@
 ## 檔案
-find_swot_granules.py | 時間+空間搜尋，輸出可用檔案清單 |
+find_swot_granules.py：時間+空間搜尋，輸出可用檔案清單
 需在 ML01 上執行，並先啟用 pyeddy 環境：
 
 ```bash
@@ -8,6 +8,7 @@ conda activate pyeddy
 ```
 
 find_swot_granules.py 用法：
+
   # 測站座標 + 半徑(度) 搜尋；--tz-offset 8 表示 --start/--end 是台灣當地時間
   python3 find_swot_granules.py \
       --start 2023-10-08T16:00:00 --end 2023-10-08T17:00:00 --tz-offset 8 \
